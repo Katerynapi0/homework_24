@@ -35,15 +35,16 @@ hamburger.addTopping(Hamburger .TOPPING_SAUCE);
 // А скільки тепер коштує?
 console.log("Price with sauce: “ + hamburger.calculatePrice());*/
 
-const SIZE_SMALL = 'small';
-const SIZE_BIG = 'big';
-const STUFFING_CHEESE = 'cheese';
-const STUFFING_SALAD = 'salad';
-const STUFFING_POTATO = 'potato';
-const TOPPING_MAYO = 'mayo';
-const TOPPING_SAUSE = 'sause';
-
 class Hamburger{
+
+    static SIZE_SMALL = 'small';
+    static SIZE_BIG = 'big';
+    static STUFFING_CHEESE = 'cheese';
+    static STUFFING_SALAD = 'salad';
+    static STUFFING_POTATO = 'potato';
+    static TOPPING_MAYO = 'mayo';
+    static TOPPING_SAUSE = 'sause';
+
     //конструктор бургера(розмір, начинка та масив для додавання топінгів)
     constructor(size, stuffing){
         this.size = size;
@@ -60,25 +61,25 @@ class Hamburger{
     calculatePrice(){
         let price = 0;
         switch(this.size){
-            case SIZE_SMALL:
+            case Hamburger.SIZE_SMALL:
             price += 50;
             break;
 
-            case SIZE_BIG:
+            case Hamburger.SIZE_BIG:
             price += 100;
             break;
         }
 
         switch(this.stuffing){
-            case STUFFING_CHEESE:
+            case Hamburger.STUFFING_CHEESE:
             price += 10;
             break;
 
-            case STUFFING_SALAD:
+            case Hamburger.STUFFING_SALAD:
             price += 20;
             break;
 
-            case STUFFING_POTATO:
+            case Hamburger.STUFFING_POTATO:
             price += 15;
             break;
         }
@@ -86,11 +87,11 @@ class Hamburger{
         //прохід по масиву для додавання ціни топінгу
         this.toppings.forEach(topping => {
             switch(topping){
-                case TOPPING_MAYO:
+                case Hamburger.TOPPING_MAYO:
                 price += 20;
                 break;
 
-                case TOPPING_SAUSE:
+                case Hamburger.TOPPING_SAUSE:
                 price += 15;
                 break;
             }
@@ -103,36 +104,36 @@ class Hamburger{
     calculateCalories(){
         let calories = 0;
         switch(this.size){
-            case SIZE_SMALL:
+            case Hamburger.SIZE_SMALL:
             calories += 20;
             break;
 
-            case SIZE_BIG:
+            case Hamburger.SIZE_BIG:
             calories += 40;
             break;
         }
 
         switch(this.stuffing){
-            case STUFFING_CHEESE:
+            case Hamburger.STUFFING_CHEESE:
             calories += 20;
             break;
 
-            case STUFFING_SALAD:
+            case Hamburger.STUFFING_SALAD:
             calories += 5;
             break;
 
-            case STUFFING_POTATO:
+            case Hamburger.STUFFING_POTATO:
             calories += 10;
             break;
         }
         //прохід по масиву для додавання калорійності топінгу
         this.toppings.forEach(topping =>{
             switch(topping){
-                case TOPPING_MAYO:
+                case Hamburger.TOPPING_MAYO:
                 calories += 5;
                 break;
 
-                case TOPPING_SAUSE:
+                case Hamburger.TOPPING_SAUSE:
                 calories += 0;
                 break;
             }
@@ -143,14 +144,14 @@ class Hamburger{
     }
 }
 // маленький гамбургер з начинкою сиру
-var hamburger = new Hamburger(SIZE_SMALL, STUFFING_CHEESE);
+var hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
 //добавка з майонезом
-hamburger.addTopping(TOPPING_MAYO);
+hamburger.addTopping(Hamburger.TOPPING_MAYO);
 // запитаємо скільки там калорій
 console.log(`Calories: ${hamburger.calculateCalories()}`);
 // скільки коштує
 console.log(`Price: ${hamburger.calculatePrice()}`);
 // я тут передумав і вирішив додати ще приправу
-hamburger.addTopping(TOPPING_SAUSE);
+hamburger.addTopping(Hamburger.TOPPING_SAUSE);
 // А скільки тепер коштує?
 console.log(`Price with sause: ${hamburger.calculatePrice()}`);
